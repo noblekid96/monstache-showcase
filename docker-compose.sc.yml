@@ -77,7 +77,7 @@ services:
   mongo-0:
     image: mongo:4.4
     logging:
-      driver: none
+      driver: json-file
     container_name: c-mongo
     command: /scripts/mongo-run.sh
     working_dir: /scripts
@@ -105,12 +105,12 @@ services:
   es7:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.0
     logging:
-      driver: none
+      driver: json-file
     container_name: c-es
     environment:
       - bootstrap.memory_lock=true
       - discovery.type=single-node
-      - "ES_JAVA_OPTS=-Xms5g -Xmx5g"
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
     ulimits:
       memlock:
         soft: -1

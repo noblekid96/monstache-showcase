@@ -64,6 +64,9 @@ cmd="$cmd --dbpath /data/db"
 
 # cmd="$cmd --sslMode requireSSL --sslPEMKeyFile /etc/ssl/mongodb.pem"
 
+# HACK: Get mongo key in for authorisation
+cmd="$cmd --keyFile ./mongo.key"
+
 $cmd &
 
 # if [ "$MONGO_ROLE" == "primary" ]; then
